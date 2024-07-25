@@ -38,7 +38,6 @@ def get_pictures():
     if data:
         return jsonify(data), 200
 
-    return {"message": "Internal server error"}, 500
 
 ######################################################################
 # GET A PICTURE
@@ -50,10 +49,9 @@ def get_picture_by_id(id):
     if data:
         for picture in data:
             if picture["id"] == id:
-                return jsonify(picture), 200
-        return {"message": "No picture found"}, 404
+                return picture, 200
+        return {"message": "picture not found"}, 404
 
-    return {"message": "Internal server error"}, 500
 
 ######################################################################
 # CREATE A PICTURE
